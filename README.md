@@ -1,3 +1,5 @@
+[日本語版 README はこちら](/README_ja.md)
+
 # docker_laravel_mailhog
 docker-compose for Laravel with mailhog
 
@@ -5,10 +7,12 @@ docker-compose for Laravel with mailhog
 You can create minimum Laravel(LEMP) environment with mailhog using docker-compose.
 
 ## Prerequisites
+(I recommend you try https://github.com/Asano-Naoki/docker_laravel_minimum first.)
+
 Before using this repository, prepare your Laravel project directory having mailing function.
 
 If you'd like to create a new one, follow the directions below:
-1. Create brand new Laravel project directory.
+1. Create a brand new Laravel project directory.
 ```
 docker run --rm -v $PWD:/app composer create-project laravel/laravel example-mailhog-app
 ```
@@ -44,6 +48,8 @@ docker-compose exec php sh
 ...
 php artisan migrate
 ```
+NOTE:
+At the first setup, php artisan migrate command may fail because not all the mysql files are created. In this situation, you have just to wait for a few minutes.
 6. Install Laravel Breeze.
 ```
 docker run --rm -v $PWD:/app composer require laravel/breeze
@@ -81,7 +87,7 @@ See also https://github.com/Asano-Naoki/docker_laravel_minimum for possible erro
 
 
 ## Usage
-Send emails on you Laravel application and the emails are trapped automatically in mailhog. You can check the emails at http://localhost:8025/
+Send an email on you Laravel application and the email is trapped automatically in mailhog. You can check the emails at http://localhost:8025/
 
 NOTE:
 You must set MAIL_FROM_ADDRESS a string which represents an email address(e.g. test@test) in your .env file to prevent the "Cannot send message without a sender address" error.
