@@ -10,7 +10,7 @@ Before using this repository, prepare your Laravel project directory having mail
 If you'd like to create a new one, follow the directions below:
 1. Create brand new Laravel project directory.
 ```
-docker run --rm --volume $PWD:/app composer create-project laravel/laravel example-app
+docker run --rm -v $PWD:/app composer create-project laravel/laravel example-mailhog-app
 ```
 2. Edit .env file.
 ```
@@ -23,7 +23,20 @@ docker run --rm --volume $PWD:/app composer create-project laravel/laravel examp
 -MAIL_FROM_ADDRESS=null
 +MAIL_FROM_ADDRESS=test@test
 ```
-3. Create users table.
+3. Copy all the files and directory in this repository to the Laravel project directory with git command(fetch and merge) or manually.
+```
+git init
+git add .
+git commit -m "first commit"
+git remote add origin git@github.com:Asano-Naoki/docker_laravel_mailhog.git
+git fetch
+git merge origin/main --allow-unrelated-histories
+```
+4. Start docker-compose.
+```
+docker-compose up -d
+```
+5. Create users table.
 ```
 docker-compose exec php sh
 ...
@@ -31,11 +44,11 @@ docker-compose exec php sh
 ...
 php artisan migrate
 ```
-4. Install Laravel Breeze.
+6. Install Laravel Breeze.
 ```
-docker run --rm --v $PWD:/app composer require laravel/breeze
+docker run --rm -v $PWD:/app composer require laravel/breeze
 ```
-5. Publish the authentication files.
+7. Publish the authentication files.
 ```
 docker-compose exec php sh
 ...
@@ -43,11 +56,11 @@ docker-compose exec php sh
 ...
 php artisan breeze:install
 ```
-6. Compile the assets.
+8. Compile the assets.
 ```
 docker run --rm  -v $PWD:/usr/src/app -w /usr/src/app node npm install && npm run dev
 ```
-7. Register a new user.
+9. Register a new user.
 
     (1) Visit the top page(http://localhost/). 
 
