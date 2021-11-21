@@ -89,7 +89,7 @@ docker run --rm  -v $PWD:/usr/src/app -w /usr/src/app node npm install && npm ru
 Laravelアプリケーションでメールを送ってください。そうしたら自動的にmailhogで補足されます。http://localhost:8025/ でそのメールを確認できます。
 
 注:
-"Cannot send message without a sender address"エラーが発生しないようにするためには、.envファイルでMAIL_FROM_ADDRESSにメールアドレスを表す文字列を設定する必要があります。
+"Cannot send message without a sender address"エラーが発生しないようにするためには、.envファイルでMAIL_FROM_ADDRESSにメールアドレスを表す文字列（例：test@test）を設定する必要があります。
 
 
 ## 著者
