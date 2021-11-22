@@ -50,6 +50,7 @@ php artisan migrate
 ```
 NOTE:
 At the first setup, php artisan migrate command may fail because not all the mysql files are created. In this situation, you have just to wait for a few minutes.
+
 6. Install Laravel Breeze.
 ```
 docker run --rm -v $PWD:/app composer require laravel/breeze
